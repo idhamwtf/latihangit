@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>solveit8</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: yellow;
+    }
+
+</style>
+<body>
+    <center>
+        <b>Ketik Kalimat :<b>  <br><br>
+        <input type="text"  id="kalimat"><br><br>
+        Karater yang ingin di cari  :<br><br>
+        <input type="text"  id="cari"><br><br>
+        <button onclick="carikata()">cari!</button>
+        <h1></h1>
+    </center>
+</body>
+<script>
+    var carikata=()=>{
+        var kal = document.getElementById("kalimat").value
+        // console.log(kal)
+        var kali = kal.split('')
+        // console.log(kali)
+        var car = document.getElementById("cari").value
+        var arr=[]
+        
+        for(i=0;i<kali.length;i++){
+            if(kali[i]==car){
+                arr.push(kali[i])
+            }
+        document.getElementsByTagName("h1")[0].innerHTML = `jumlah "${car}" dalam kata ${kal} ada ${arr.length}`
+            console.log(arr)
+        }
+        
+    }
+
+</script>
+</html>

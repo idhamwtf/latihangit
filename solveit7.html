@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>solveit7</title>
+</head>
+<body>
+    <center>
+        <br>
+        Masukkan angka 1 : <input type="number" id="angka1" placeholder="masukan angka"> <br><br>
+        Masukkan angka 2 : <input type="number" id="angka2" placeholder="masukan pangkat"><br><br>
+                            <button onclick="pangkat()">Pangkatkan ! </button>
+                            <h1></h1>
+    </center>
+    
+</body>
+<script>
+
+const pangkat =()=>{
+    var a = document.getElementById("angka1").value
+    var b = document.getElementById("angka2").value
+    var x = Math.pow(a,b)
+    document.getElementsByTagName("h1")[0].innerHTML = `pangkat dari ${a} <sup>${b}</sup> adalah ${x}`
+    document.getElementById("angka2").value = ''
+    document.getElementById("angka1").value = ''
+
+}
+
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>solveit9</title>
+</head>
+<body>
+    <center>
+        <h1>Kalkulator Sederhana</h1>
+        Masukkan angka pertama  : <input type="number" id="angka1"><br><br>
+        Masukkan angka kedua    : <input type="number" id="angka2"><br><br>
+        <button onclick="kali()">Kali X</button>  <button onclick="bagi()">Bagi : </button>  <button onclick="tambah()">Tambah +</button>  <button onclick="kurang()">Kurang -</button><br><br>
+        <button onclick="modulus()">Modulus %</button>  <button onclick="pangkat()">Pangkat ^</button>
+        <h2></h2>
+
+    </center>
+    
+</body>
+<script>
+    const kali=()=>{
+        var a = document.getElementById("angka1").value
+        var b = document.getElementById("angka2").value
+        var ka = a*b
+        document.getElementsByTagName("h2")[0].innerHTML = `${a} x ${b} = ${ka}`
+    }
+
+    const bagi=()=>{
+        var a = document.getElementById("angka1").value
+        var b = document.getElementById("angka2").value
+        var ka = a/b
+        document.getElementsByTagName("h2")[0].innerHTML = `${a} : ${b} = ${ka}`
+    }
+    const tambah=()=>{
+        var a = parseInt(document.getElementById("angka1").value)
+        var b = parseInt(document.getElementById("angka2").value)
+        var ka = a+b
+        document.getElementsByTagName("h2")[0].innerHTML = `${a} + ${b} = ${ka}`
+    }
+    const kurang=()=>{
+        var a = parseInt(document.getElementById("angka1").value)
+        var b = parseInt(document.getElementById("angka2").value)
+        var ka = a-b
+        document.getElementsByTagName("h2")[0].innerHTML = `${a} - ${b} = ${ka}`
+    }
+    const modulus=()=>{
+        var a = parseInt(document.getElementById("angka1").value)
+        var b = parseInt(document.getElementById("angka2").value)
+        var ka = a%b
+        document.getElementsByTagName("h2")[0].innerHTML = `${a} % ${b} = ${ka}`
+    }
+    const pangkat=()=>{
+        var a = parseInt(document.getElementById("angka1").value)
+        var b = parseInt(document.getElementById("angka2").value)
+        var ka = Math.pow(a,b)
+        document.getElementsByTagName("h2")[0].innerHTML = `pangkat dari ${a} <sup>${b}</sup> = ${ka}`
+    }
+
+
+</script>
+</html>
