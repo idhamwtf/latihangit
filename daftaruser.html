@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    tr,td,table{
+        border: 3px solid lightcoral;
+        border-collapse: collapse;
+        padding: 20px 20px
+    }
+    button{
+        margin: 3px;
+    }
+    #nama,#usia,#pekerjaan{
+        padding: 3px;
+    }
+    </style>
+<body>
+    <center>
+        <h1>Daftar User</h1>
+       <table>
+           <thead>
+               <tr>
+                   <td>
+                    <input type="text" id="nama" placeholder="masukkan nama" size = "35"><br><br>
+                    <input type="text" id="usia" placeholder="masukkan usia"size = "35" > <br><br>
+                    Kelamin : <input type="radio" name="sex" value="">Pria  <input type="radio" name="sex" value="">Wanita <br><br>
+                    <input type="text" id="perkerjaan" placeholder="masukkan pekerjaan"size = "35"> <br><br>
+                    <center>
+                    <button onclick="klikData()">Submit !</button><br>
+                    </center>
+                    <center>
+                        <br>
+                        <b>Sort Berdarsarkan</b>
+                    </center>
+                    <br>
+                    <button onclick="sortNama()">name </button><button onclick="sortUmur()">umur</button><button onclick="sortKelamin()">kelamin</button><button onclick="sortPekerjaan()">pekerjaan</button>
+                    
+                    
+                   </td>
+               </tr>
+           </thead>
+       </table><br>
+       <h3></h3>
+       <table>
+
+       </table>
+    </center>
+</body>
+<script>
+
+class dataBaru{
+    constructor(a,b,c,d){
+        this.nama=a,
+        this.usia=b,
+        this.kelamin=c,
+        this.pekerjaan=d
+    }
+}
+var listdata = []
+
+var printdata=(a)=>{
+    var h = `
+                <tr>
+                    <td>No.</td>
+                    <td>Nama</td>
+                    <td>Usia</td>
+                    <td>Kelamin</td>
+                    <td>Pekerjaan</td>
+                </tr>
+            `
+    var output = ''
+    a.forEach((value,index) => {
+        output+=`<tr>
+                    <td>${index+1}</td>
+                    <td>${value.nama}</td>
+                    <td>${value.usia}</td>
+                    <td>${value.kelamin}</td>
+                    <td>${value.pekerjaan}</td>
+                </tr>`
+     
+    document.getElementsByTagName("h3")[0].innerHTML= `List User terdaftar`
+    document.getElementsByTagName("table")[1].innerHTML = h+output
+
+})
+}
+
+
+var klikData=()=>{
+    var inputnama = document.getElementById("nama").value
+    var inputusia = document.getElementById("usia").value
+    var kelamin = ''
+    if(document.getElementsByName('sex')[0].checked){
+        kelamin='Pria'
+    }else if(document.getElementsByName('sex')[1].checked){
+        kelamin='Wanita'
+    }   
+    var kerjaan = document.getElementById("perkerjaan").value
+    listdata.push(new dataBaru(inputnama,inputusia,kelamin,kerjaan))
+    printdata(listdata)
+
+}
+
+var sortNama=()=>{
+    listdata.sort((a,b)=>{
+        if(a.nama>b.nama) return 1;
+        if(a.nama<b.nama) return -1;
+    });
+    printdata(listdata)
+}
+
+var sortUmur=()=>{
+    listdata.sort((a,b)=>{
+        if(a.usia>b.usia) return 1;
+        if(a.usia<b.usia) return -1;
+    });
+    printdata(listdata)
+}
+
+var sortKelamin=()=>{
+    listdata.sort((a,b)=>{
+        if(a.kelamin>b.kelamin) return 1;
+        if(a.kelamin<b.kelamin) return -1;
+    });
+    printdata(listdata)
+}
+
+var sortPekerjaan=()=>{
+    listdata.sort((a,b)=>{
+        if(a.pekerjaan>b.pekerjaan) return 1;
+        if(a.pekerjaan<b.pekerjaan) return -1;
+    });
+    printdata(listdata)
+}
+
+
+
+
+
+</script>
+</html>
